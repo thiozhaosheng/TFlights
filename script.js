@@ -36,13 +36,24 @@ function updateSelection() {
 }
 
 // Listen for the scroll event
-window.addEventListener('scroll', function () {
+function handleNavbarStyle() {
     const navbar = document.querySelector('.navbar');
+    const windowWidth = window.innerWidth; // Get the viewport width
 
-    // Check the scroll position (you can adjust the 100 value for when you want the navbar to change)
-    if (window.scrollY > 100) {
-        navbar.classList.add('navbar-scrolled'); // Add a background color when scrolled past 100px
+    // Check if the scroll position is past 100px OR the window width is 820px or smaller, OR between 820px and 1180px
+    if (window.scrollY > 100 || windowWidth <= 820 || (windowWidth >= 820 && windowWidth <= 1180)) {
+        navbar.classList.add('navbar-scrolled'); // Add background color when scrolled past 100px or width is 820px or smaller, or between 820px and 1180px
     } else {
-        navbar.classList.remove('navbar-scrolled'); // Remove background color when at the top
+        navbar.classList.remove('navbar-scrolled'); // Remove background color when at the top and width is outside the range
     }
-});
+}
+
+// Listen for scroll events
+window.addEventListener('scroll', handleNavbarStyle);
+
+// Listen for window resize events to handle changes in viewport width
+window.addEventListener('resize', handleNavbarStyle);
+
+// Initial call to set navbar style based on the current state
+handleNavbarStyle();
+

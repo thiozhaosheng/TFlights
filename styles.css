@@ -68,21 +68,14 @@
 
 .navbar-nav .nav-link:hover {
     text-decoration: underline;
-    color: #ffd700; /* Optional: Change color on hover */
+    color: #ffd700; 
 }
 
 .navbar-toggler-icon {
     filter: invert(1) brightness(100%) grayscale(0%);
 }
 
-.navbar-collapse {
-    display: flex;
-    justify-content: flex-end;
-}
 
-.navbar-collapse.collapse.show .navbar-nav {
-    text-align: right;
-}
 
 
   /* Section 1 */
@@ -154,3 +147,4 @@
         min-height: 100%;
     }
 }
+
