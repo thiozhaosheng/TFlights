@@ -57,3 +57,21 @@ window.addEventListener('resize', handleNavbarStyle);
 // Initial call to set navbar style based on the current state
 handleNavbarStyle();
 
+// JavaScript for rotating text
+const heroData = [
+    {text1: "Drift", text2: "Flow with adventure"},
+    {text1: "Soar", text2: "Lift your dreams"},
+    {text1: "Roam", text2: "Uncover hidden gems"}
+];
+
+let currentTextIndex = 0;
+
+const heroTextElement = document.getElementById('hero-text');
+const heroParagraphElement = heroTextElement.nextElementSibling; // assuming the <p> tag is right after <h1>
+
+// Function to update the text every 3 seconds
+setInterval(() => {
+    currentTextIndex = (currentTextIndex + 1) % heroData.length;
+    heroTextElement.textContent = heroData[currentTextIndex].text1;
+    heroParagraphElement.textContent = heroData[currentTextIndex].text2;
+}, 3000);

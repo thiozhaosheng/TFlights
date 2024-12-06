@@ -32,6 +32,21 @@
     z-index: -1;
 }
 
+/* Center the overlay text on top of the background */
+.hero-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the text both horizontally and vertically */
+    text-align: center;
+    color: white;
+    z-index: 1;  /* Make sure the text is above the background */
+}
+
+.hero-overlay h1, .hero-overlay p {
+    margin: 0;
+    font-size: 6rem; /* Adjust the font size if necessary */
+}
 
 
 
@@ -114,6 +129,7 @@
 
   
   /*Change BG to image when scaling down */
+  /* Scaledown on rotaing text */
   @media (max-width: 1700px) {
     #bg-video {
         display: none; /* Hide the video on smaller screens */
@@ -126,14 +142,21 @@
         object-fit: cover; /* Ensure the image covers the entire area */
         object-position: center; /* Center the image */
     }
+
+    .hero-overlay h1, .hero-overlay p {
+        margin: 0;
+        font-size: 4rem; /* Adjust the font size if necessary */
+    }
 }
 
 /* Scale down image to 50% when screen width is 768px or smaller (mobile view) */
+/* Adjust positioning for rotating text */
 @media (max-width: 768px) {
 
     #video-section {
         height: 50vh; /* Set height to 50% of the viewport height for mobile */
     }
+
     #bg-video {
         display: none; /* Hide the video on smaller screens */
     }
@@ -146,5 +169,28 @@
         object-position: center; /* Center the image */
         min-height: 100%;
     }
+
+    /* Center the text within the 20vh container */
+    .hero-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -300%); /* Center text */
+        text-align: center;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .hero-overlay h1, .hero-overlay p {
+        margin: 0;
+        font-size: 3em; /* Adjust font size for mobile */
+        color: white; /* Ensure text is readable */
+    }
+
+    /* Reduce the size of the paragraph text */
+    .hero-overlay p {
+        font-size: 1rem;
+    }
 }
+
 
