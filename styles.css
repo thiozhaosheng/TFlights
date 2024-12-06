@@ -141,7 +141,7 @@
     background-color: white; /* White background for suggestions */
     border: 1px solid #ccc; /* Border around the suggestions */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    z-index: 9999; /* Ensure suggestions appear on top */
+    z-index: 1; /* Ensure suggestions appear on top */
     margin-top: 0; /* Ensure no extra space above the suggestion box */
 }
 
