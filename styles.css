@@ -127,6 +127,51 @@
     box-shadow: 0 0 0 2px rgba(38, 143, 255, 0.6); /* Custom focus ring */
   }
 
+  /* Auto Suggestion */
+ 
+  
+/* Style for suggestions dropdown */
+.suggestions {
+    position: absolute; /* Position suggestions relative to the input */
+    top: 100%; /* Position directly below the input */
+    left: 0; /* Align with the left side of the input */
+    width: 100%; /* Match the input width */
+    max-height: 200px; /* Limit the height */
+    overflow-y: auto; /* Enable scrolling if necessary */
+    background-color: white; /* White background for suggestions */
+    border: 1px solid #ccc; /* Border around the suggestions */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    z-index: 9999; /* Ensure suggestions appear on top */
+    margin-top: 0; /* Ensure no extra space above the suggestion box */
+}
+
+/* Styling for input fields */
+input.form-control {
+    margin-bottom: 0; /* Prevent unwanted space below the input */
+    border-bottom: 1px solid #ccc; /* Optional border for input */
+}
+
+/* Focus style for inputs */
+input.form-control:focus {
+    outline: none; /* Remove the default outline */
+    border-color: #007bff; /* Optional: Custom border color on focus */
+}
+
+/* Ensure the parent div of each input is positioned relative */
+.position-relative {
+    position: relative; /* Ensures suggestions are positioned relative to this container */
+    margin-bottom: 0; /* Prevent extra space below the input */
+}
+
+/* Box-sizing reset for all elements to avoid overflow issues */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+
   
   /*Change BG to image when scaling down */
   /* Scaledown on rotaing text */

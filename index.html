@@ -123,15 +123,22 @@
                  </div>
 
                  <div class="w-100 d-flex flex-column flex-sm-row gap-3 mt-3">
-                    <input type="text" class="form-control" placeholder="From" aria-label="Origin" />
-                    <input type="text" class="form-control" placeholder="To" aria-label="Destination" />
-
-                    <input type="text" id="dateRange" class="form-control" placeholder="Select date range" aria-label="Date Range">
+                  <div class="position-relative w-100">
+                      <input type="text" class="form-control" placeholder="From" aria-label="Origin" id="origin"/>
+                      <div id="originSuggestions" class="suggestions"></div>
                   </div>
-
-                  <div class="w-100 text-center mt-3">
-                    <button class="btn btn-primary" id="updateButton" onclick="updateSelection()">Update</button>
+                  
+                  <div class="position-relative w-100">
+                      <input type="text" class="form-control" placeholder="To" aria-label="Destination" id="destination"/>
+                      <div id="destinationSuggestions" class="suggestions"></div>
                   </div>
+              
+                  <input type="text" id="dateRange" class="form-control" placeholder="Select date range" aria-label="Date Range">
+              </div>
+              
+              <div class="w-100 text-center mt-3">
+                  <button class="btn btn-primary" id="updateButton" onclick="updateSelection()">Update</button>
+              </div>
           </div>
         </div>
       </section>
