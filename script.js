@@ -201,24 +201,11 @@ function showFlightsTable() {
   console.log("From ID:", fromId);
   console.log("To ID:", toId);
 
-  // Get the selected date(s) from Flatpickr and format them
+  // Get the selected departure date from Flatpickr and format it as YYYY-MM-DD
   const dateRangeInput = document.getElementById("dateRange").value.trim();
-  const selectedDates = calendar.selectedDates;
-
-  let departDate = null;
-  let returnDate = null;
-
-  if (selectedDates.length > 0) {
-    departDate = selectedDates[0]
-      ? selectedDates[0].toISOString().split("T")[0] // Format as YYYY-MM-DD
-      : null;
-
-    if (selectedDates.length > 1) {
-      returnDate = selectedDates[1]
-        ? selectedDates[1].toISOString().split("T")[0] // Format as YYYY-MM-DD
-        : null;
-    }
-  }
+  const departDate = dateRangeInput
+    ? new Date(dateRangeInput).toISOString().split("T")[0] // Format as YYYY-MM-DD
+    : null;
 
   if (!departDate) {
     alert("Please select a valid departure date.");
@@ -226,9 +213,6 @@ function showFlightsTable() {
   }
 
   console.log("Formatted Departure Date:", departDate);
-  if (returnDate) {
-    console.log("Formatted Return Date:", returnDate);
-  }
 
   // Retrieve the selected cabin class from the dropdown button
   let cabinClassText = document
@@ -250,7 +234,6 @@ function showFlightsTable() {
     fromId: fromId,
     toId: toId,
     departDate: departDate,
-    returnDate: returnDate, // Add the returnDate if available
     pageNo: 1,
     adults: validPassengers,
     children: "0,17",
@@ -318,20 +301,20 @@ function showFlightsTable() {
 
           const row = document.createElement("tr");
           row.innerHTML = `
-                        <td>${
-                          airlineLogo
-                            ? `<img src="${airlineLogo}" alt="Airline Logo" style="width:50px;">`
-                            : "N/A"
-                        }</td>
-                        <td>${airlineName}</td>
-                        <td>${airlineCode}</td>
-                        <td>${flightNumber}</td>
-                        <td>${departureAirport}</td>
-                        <td>${arrivalAirport}</td>
-                        <td>${departureTime}</td>
-                        <td>${arrivalTime}</td>
-                        <td>$${flightPrice}</td>
-                    `;
+                      <td>${
+                        airlineLogo
+                          ? `<img src="${airlineLogo}" alt="Airline Logo" style="width:50px;">`
+                          : "N/A"
+                      }</td>
+                      <td>${airlineName}</td>
+                      <td>${airlineCode}</td>
+                      <td>${flightNumber}</td>
+                      <td>${departureAirport}</td>
+                      <td>${arrivalAirport}</td>
+                      <td>${departureTime}</td>
+                      <td>${arrivalTime}</td>
+                      <td>$${flightPrice}</td>
+                  `;
           tableBody.appendChild(row);
         });
       } else {
